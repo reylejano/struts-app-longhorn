@@ -6,7 +6,7 @@ metadata:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: struts-pv
+  name: struts-pvc
   namespace: struts
 spec:
   storageClassName: longhorn
