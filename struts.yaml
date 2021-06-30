@@ -7,7 +7,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: struts-pv
-  namespace: strut
+  namespace: struts
 spec:
   storageClassName: longhorn
   accessModes:
