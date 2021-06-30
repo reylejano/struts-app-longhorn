@@ -4,17 +4,6 @@ metadata:
   name: struts
 ---
 apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: struts-pv
-spec:
-  storageClassName: longhorn
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: struts-pv
