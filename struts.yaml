@@ -54,7 +54,7 @@ spec:
               mountPath: "/data"
       volumes:
         - name: struts-pvc
-          persistentVolumeClain:
+          persistentVolumeClaim:
             claimName: struts-pvc
 ---
 apiVersion: v1
