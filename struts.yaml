@@ -11,10 +11,10 @@ metadata:
 spec:
   storageClassName: longhorn
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
-      storage: 1Gi
+      storage: 200Mi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -24,7 +24,16 @@ metadata:
   labels:
     app: struts
 spec:
-  replicas: 1
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+    - labelSelector:
+        matchExpressions:
+        - key: app
+          operator: In
+          values:
+          - struts
+      topologyKey: "kubernetes.io/hostname"
+  replicas: 3
   selector:
     matchLabels:
       app: struts
