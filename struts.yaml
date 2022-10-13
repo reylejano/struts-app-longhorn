@@ -43,13 +43,13 @@ spec:
         app: struts
     spec:
       containers:
-        - name: struts
-          image: reyl/struts:0.1
-          ports:
-            - containerPort: 8080
-          volumeMounts:
-            - name: struts-pvc
-              mountPath: "/data"
+      - name: struts
+        image: reyl/struts:0.1
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+          - name: struts-pvc
+            mountPath: "/data"
       volumes:
         - name: struts-pvc
           persistentVolumeClaim:
