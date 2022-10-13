@@ -24,15 +24,6 @@ metadata:
   labels:
     app: struts
 spec:
-  podAntiAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-    - labelSelector:
-        matchExpressions:
-        - key: app
-          operator: In
-          values:
-          - struts
-      topologyKey: "kubernetes.io/hostname"
   replicas: 3
   selector:
     matchLabels:
@@ -42,6 +33,16 @@ spec:
       labels:
         app: struts
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - struts
+            topologyKey: "kubernetes.io/hostname"
       containers:
       - name: struts
         image: reyl/struts:0.1
